@@ -18,9 +18,23 @@
 <body>
 
     <main class="bg-light">
-        <h1>main</h1>
+        @forelse ($trains as $train)
+            <div class="col-4 p-3">
+                <div class="card p-4">
+                    <h3>Compagnia ferroviaria: {{ $train->azienda }}</h3>
+                    <p>Stazione di partenza: {{ $train->stazione_di_partenza }}</p>
+                    <p>Stazione di arrivo: {{ $train->stazione_di_arrivo }}</p>
+                    <p>Orario di partenza: {{ $train->orario_di_partenza }}</p>
+                    <p>Orario di arrivo: {{ $train->orario_di_arrivo }}</p>
+                    <p>Codice treno: {{ $train->codice_treno }}</p>
+                    <p>Numero di carrozze: {{ $train->numero_di_carrozze }}</p>
+                    <p>Treno in orario: {{ $train->in_orario }}</p>
+                    <p>Cancellato: {{ $train->cancellato }}</p>
+                </div>
+            </div>
+        @empty
+        @endforelse
     </main>
-
 </body>
 
 </html>
